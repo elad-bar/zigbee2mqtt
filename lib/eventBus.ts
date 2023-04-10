@@ -161,6 +161,13 @@ export default class EventBus {
         this.on('stateChange', callback, key);
     }
 
+    public emitRediscoverEntities(): void {
+        this.emitter.emit('rediscoverEntities');
+    }
+    public onRediscoverEntities(key: ListenerKey, callback: () => void): void {
+        this.on('rediscoverEntities', callback, key);
+    }
+
     private on(event: string, callback: (...args: unknown[]) => void, key: ListenerKey): void {
         if (!this.callbacksByExtension[key.constructor.name]) this.callbacksByExtension[key.constructor.name] = [];
         this.callbacksByExtension[key.constructor.name].push({event, callback});
