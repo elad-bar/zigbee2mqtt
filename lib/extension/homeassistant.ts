@@ -96,11 +96,16 @@ export default class HomeAssistant extends Extension {
         this.eventBus.onDeviceInterview(this, this.onZigbeeEvent);
         this.eventBus.onDeviceMessage(this, this.onZigbeeEvent);
         this.eventBus.onEntityOptionsChanged(this, (data) => this.discover(data.entity, true));
+        this.eventBus.onRediscoverEntities(this, this.rediscoverEntities);
 
         this.mqtt.subscribe(this.statusTopic);
         this.mqtt.subscribe(defaultStatusTopic);
         this.mqtt.subscribe(`${this.discoveryTopic}/#`);
+        
+        this.rediscoverEntities();
+    }
 
+    private rediscoverEntities(): void {
         // MQTT discovery of all paired devices on startup.
         for (const entity of [...this.zigbee.devices(false), ...this.zigbee.groups()]) {
             this.discover(entity, true);

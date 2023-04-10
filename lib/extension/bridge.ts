@@ -39,6 +39,7 @@ export default class Bridge extends Extension {
             'group/remove': this.groupRemove,
             'group/rename': this.groupRename,
             'permit_join': this.permitJoin,
+            'rediscover': this.rediscover,
             'restart': this.restart,
             'backup': this.backup,
             'touchlink/factory_reset': this.touchlinkFactoryReset,
@@ -207,6 +208,12 @@ export default class Bridge extends Extension {
         setTimeout(this.restartCallback, 500);
         logger.info('Restarting Zigbee2MQTT');
         return utils.getResponse(message, {}, null);
+    }
+
+    @bind async rediscover(message: string | KeyValue): Promise<MQTTResponse> {
+        this.eventBus.emitRediscoverEntities();
+
+        return utils.getResponse(message, {rediscovered: true}, null);
     }
 
     @bind async backup(message: string | KeyValue): Promise<MQTTResponse> {
