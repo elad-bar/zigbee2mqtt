@@ -8,7 +8,7 @@
     "url": "git+https://github.com/Koenkk/zigbee2mqtt.git"
   },
   "engines": {
-    "node": "^14 || ^16 || ^18 || ^19"
+    "node": "^14 || ^16 || ^18 || ^19 || ^20"
   },
   "keywords": [
     "xiaomi",
@@ -51,16 +51,16 @@
     "moment": "^2.29.4",
     "mqtt": "4.3.7",
     "object-assign-deep": "^0.4.0",
-    "rimraf": "^4.4.1",
-    "semver": "^7.3.8",
+    "rimraf": "^5.0.0",
+    "semver": "^7.4.0",
     "source-map-support": "^0.5.21",
     "uri-js": "^4.4.1",
     "winston": "^3.8.2",
     "winston-syslog": "^2.7.0",
     "winston-transport": "^4.5.0",
     "ws": "^8.13.0",
-    "zigbee-herdsman": "0.14.105",
-    "zigbee-herdsman-converters": "15.0.86",
+    "zigbee-herdsman": "0.14.108",
+    "zigbee-herdsman-converters": "15.0.94",
     "zigbee2mqtt-frontend": "0.6.127"
   },
   "devDependencies": {
@@ -76,8 +76,8 @@
     "@types/object-assign-deep": "^0.4.0",
     "@types/rimraf": "^3.0.2",
     "@types/ws": "^8.5.4",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
     "babel-jest": "^29.5.0",
     "eslint": "^8.38.0",
     "eslint-config-google": "^0.14.0",
